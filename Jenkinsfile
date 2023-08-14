@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Build') {
           steps {
-            echo 'Building the first pipeline'
+            echo 'Building the first pipeline with ${jenkinspath}'
           }
         }
 
@@ -15,14 +15,17 @@ pipeline {
           }
         }
 
-        stage('Deploy') {
-          steps {
-            echo 'Deploying the app in OS'
-          }
-        }
-
       }
     }
 
+    stage('Deploy') {
+      steps {
+        echo 'Deploying the code to server'
+      }
+    }
+
+  }
+  environment {
+    jenkinspath = 'C:\\Users\\sanjeev\\jenkinsdata'
   }
 }
