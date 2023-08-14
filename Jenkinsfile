@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Build') {
           steps {
-            echo 'Building the first pipeline with ${jenkinspath}'
+            echo '"Building the first pipeline with ${jenkinspath}"'
           }
         }
 
