@@ -18,12 +18,6 @@ pipeline {
             writeFile(file: 'LogTestFile.txt', text: "This is a local variable {LocalVariable}")
           }
         }
-        stage('Artifacts'){
-              steps{
-                echo 'Testing the artifacts'
-                archiveArtifacts 'LogTestFile.txt'
-              }
-        }
       }
     }
     stage('Deploy') {
@@ -32,7 +26,13 @@ pipeline {
       }
     }
   }
-  environment {
+   stage('Artifacts'){
+      steps{
+         echo 'Testing the artifacts'
+           archiveArtifacts 'LogTestFile.txt'
+          }
+    }
+      environment {
     jenkinspath = 'C:\\Users\\sanjeev\\jenkinsdata'
   }
 
