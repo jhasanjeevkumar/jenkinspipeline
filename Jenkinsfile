@@ -18,17 +18,16 @@ pipeline {
             writeFile(file: 'LogTestFile.txt', text: "This is a local variable {LocalVariable}")
           }
         }
-
+        stage('Artifacts'){
+              Steps{
+                archiveArtifacts 'LogTestFile.txt'
+              }
+        }
       }
     }
     stage('Deploy') {
       steps {
         echo 'Deploying the code to server'
-      }
-    }
-    stage('Artifacts'){
-      Steps{
-        archiveArtifacts 'LogTestFile.txt'
       }
     }
   }
