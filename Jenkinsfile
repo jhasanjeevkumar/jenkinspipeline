@@ -25,13 +25,13 @@ pipeline {
         echo 'Deploying the code to server'
       }
     }
-  }
-   stage('Artifacts'){
+    stage('Artifacts'){
       steps{
          echo 'Testing the artifacts'
            archiveArtifacts 'LogTestFile.txt'
           }
     }
+  }
       environment {
     jenkinspath = 'C:\\Users\\sanjeev\\jenkinsdata'
   }
