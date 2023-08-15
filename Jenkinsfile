@@ -68,20 +68,17 @@ pipeline {
                 }
             }
         }
+       stage('Docker_Test') {
+           agent {
+                  docker { image 'node:16.13.1-alpine' }
+            }
+            steps {
+                sh 'node --version'
+            } 
+  }
   }
       environment {
     jenkinspath = 'C:\\Users\\sanjeev\\jenkinsdata'
   }
-
-   agent {
-        docker { image 'node:16.13.1-alpine' }
-    }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'node --version'
-            }
-        }
-    }
 
 }
