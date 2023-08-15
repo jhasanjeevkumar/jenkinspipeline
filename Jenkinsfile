@@ -10,8 +10,12 @@ pipeline {
         }
 
         stage('Test') {
+          environment{
+            LocalVariable = "HelloLocal"
+          }
           steps {
             echo 'Testing the application'
+            writeFile(file: 'LogTestFile.txt', text: "This is a local variable {LocalVariable}")
           }
         }
 
