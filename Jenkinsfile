@@ -19,7 +19,7 @@ pipeline {
           }
         }
         stage('Artifacts'){
-              Steps{
+              steps{
                 echo 'Testing the artifacts'
                 archiveArtifacts Artifacts: 'LogTestFile.txt'
               }
